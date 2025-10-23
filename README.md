@@ -50,6 +50,7 @@ To install, open a python terminal and run:
 ```python
 pip install <package-name>
 ```
+---
 
 # How to Run:
 ```python
