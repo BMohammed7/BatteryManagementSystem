@@ -3,12 +3,13 @@
 - openpyxl
 - matplotlib
 - scikit-learn
-- to install, open a python terminal and run
-```
+
+To install, open a python terminal and run:
+```python
 pip install <package-name>
 ```
 
 # How to Run:
-```
+```python
 python "src/LinearRegression.py"
 ```
