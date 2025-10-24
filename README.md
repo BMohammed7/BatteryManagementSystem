@@ -76,7 +76,7 @@ pip install numpy matplotlib scikit-learn
 If your working directory differs, open `src/Main.py` and adjust the path in the `load_data()` function:
 
 ```python
-data, headers = load_data("data/PulseBat Dataset.csv")
+data, headers = load_data("../data/PulseBat Dataset.csv")
 ```
 
 Change to the correct relative or absolute path if needed.
