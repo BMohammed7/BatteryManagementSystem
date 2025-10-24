@@ -85,7 +85,7 @@ Change to the correct relative or absolute path if needed.
 
 ## Running the Script
 
-From the project root, run:
+From the src folder, run:
 
 ```bash
 python Main.py
