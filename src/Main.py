@@ -5,7 +5,7 @@ from LinearRegression import load_data, calculate_metrics, train_data, visualize
 if __name__ == "__main__":
     # Load data
     print("Loading data...")
-    data, headers = load_data("data/PulseBat Dataset.csv")
+    data, headers = load_data("../data/PulseBat Dataset.csv")
     
     # Featured Columns: U1 to U21, Target: SOH
     X = data[:, :-1]  # All columns except last
@@ -54,4 +54,5 @@ if __name__ == "__main__":
 
     print("\n" + "="*50)
     print("ANALYSIS COMPLETE")
+
     print("="*50)
