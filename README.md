@@ -25,18 +25,19 @@ This README explains how a TA can set up the environment, run the script, and ve
 
 ```
 
-project-root/
+root/
 ├── src/
-│   └── LinearRegression.py    # main script
+│   └── Main.py                # main script
+│   └── LinearRegression.py    # file with all custom functions used in Main
 ├── data/
 │   └── PulseBat Dataset.xlsx  # dataset
-│   └── PulseBat Dataset.csv   # dataset in csv form (for reading) 
+│   └── PulseBat Dataset.csv   # dataset in csv form (for faster reading) 
 ├── requirements.txt           # pip installable requirements
 └── README.md                  # this file
 
 ````
 
-> **Note:** Ensure `PulseBat Dataset.csv` is placed in `data/` relative to the script path. Adjust the path in `LinearRegression.py` if you store the dataset elsewhere.
+> **Note:** Ensure `PulseBat Dataset.csv` is placed in `data/` relative to the script path. Adjust the path in `Main.py` if you store the dataset elsewhere.
 
 ---
 
@@ -44,7 +45,6 @@ project-root/
 
 - Python 3.9+
 - Python packages:
-  - `pandas`
   - `numpy`
   - `matplotlib`
   - `scikit-learn`
@@ -56,14 +56,14 @@ project-root/
 1. **Clone the repository**
 
 ```bash
-git clone <repo-url>
+git clone github.com/hashir-rashid/BatteryManagementSystem@latest
 cd project-root
 ```
 
 2. **Install Python packages**
 
 ```bash
-pip install pandas numpy matplotlib scikit-learn openpyxl
+pip install numpy matplotlib scikit-learn
 ```
 
 3. **Place the dataset**
@@ -73,10 +73,10 @@ pip install pandas numpy matplotlib scikit-learn openpyxl
 
 4. **(Optional) Edit script path**
 
-If your working directory differs, open `src/LinearRegression.py` and adjust the path at the top:
+If your working directory differs, open `src/Main.py` and adjust the path in the `load_data()` function:
 
 ```python
-df = pd.read_csv("../data/PulseBat Dataset.csv")
+data, headers = load_data("data/PulseBat Dataset.csv")
 ```
 
 Change to the correct relative or absolute path if needed.
@@ -88,9 +88,9 @@ Change to the correct relative or absolute path if needed.
 From the project root, run:
 
 ```bash
-python LinearRegression.py
+python Main.py # from src/
 # or
-python src/LinearRegression.py
+python src/Main.py # from root
 ```
 
 **Expected Output:**
