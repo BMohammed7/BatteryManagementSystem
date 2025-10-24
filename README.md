@@ -57,7 +57,7 @@ root/
 
 ```bash
 git clone github.com/hashir-rashid/BatteryManagementSystem@latest
-cd project-root
+cd src
 ```
 
 2. **Install Python packages**
@@ -88,9 +88,7 @@ Change to the correct relative or absolute path if needed.
 From the project root, run:
 
 ```bash
-python Main.py # from src/
-# or
-python src/Main.py # from root
+python Main.py
 ```
 
 **Expected Output:**
