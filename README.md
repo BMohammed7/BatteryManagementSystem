@@ -27,33 +27,27 @@ This README explains how a TA can set up the environment, run the script, and ve
 
 project-root/
 ├── src/
-│   └── LinearRegression.py    # main script (the code you provided)
+│   └── LinearRegression.py    # main script
 ├── data/
-│   └── PulseBat Dataset.xlsx  # dataset (not included in repo by default)
+│   └── PulseBat Dataset.xlsx  # dataset
+│   └── PulseBat Dataset.csv   # dataset in csv form (for reading) 
 ├── requirements.txt           # pip installable requirements
 └── README.md                  # this file
 
 ````
 
-> **Note:** Ensure `PulseBat Dataset.xlsx` is placed in `data/` relative to the script path. Adjust the path in `LinearRegression.py` if you store the dataset elsewhere.
+> **Note:** Ensure `PulseBat Dataset.csv` is placed in `data/` relative to the script path. Adjust the path in `LinearRegression.py` if you store the dataset elsewhere.
 
 ---
 
 ## Requirements
 
-- Python 3.9+ (3.10/3.11 are fine)  
+- Python 3.9+
 - Python packages:
   - `pandas`
   - `numpy`
   - `matplotlib`
   - `scikit-learn`
-  - `openpyxl` (Excel engine)  
-
-Install dependencies with pip:
-
-```bash
-pip install pandas numpy matplotlib scikit-learn openpyxl
-````
 
 ---
 
@@ -74,15 +68,15 @@ pip install pandas numpy matplotlib scikit-learn openpyxl
 
 3. **Place the dataset**
 
-* Put `PulseBat Dataset.xlsx` into the `data/` folder.
-* Confirm the file contains a sheet named `SOC ALL` and columns `SOH` and `U1..U21`.
+* Put `PulseBat Dataset.csv` into the `data/` folder.
+* Confirm the file contains columns `SOH` and `U1..U21`.
 
 4. **(Optional) Edit script path**
 
 If your working directory differs, open `src/LinearRegression.py` and adjust the path at the top:
 
 ```python
-df = pd.read_excel("../data/PulseBat Dataset.xlsx", sheet_name="SOC ALL")
+df = pd.read_csv("../data/PulseBat Dataset.xlsx", sheet_name="SOC ALL")
 ```
 
 Change to the correct relative or absolute path if needed.
@@ -103,11 +97,6 @@ python src/LinearRegression.py
 
 * Console output showing dataset shape, feature names, training/test sizes, and model metrics (R², MAE, RMSE).
 * Matplotlib plots:
-
-  * Actual vs Predicted scatter
-  * Residuals plot
-  * Coefficient bar chart
-  * Error histogram
   * Sorted line plot comparing actual vs predicted across test samples
 * Example printed model equation and a prediction using mean feature values.
 
@@ -121,9 +110,8 @@ plt.savefig("figure.png")
 
 ## Troubleshooting and Common Issues
 
-* **FileNotFoundError / Path issues:** Check the path to the Excel file and your working directory. Use an absolute path if necessary.
-* **Missing columns:** Ensure `SOH` and `U1..U21` exist. Rename columns in Excel or update `feature_columns` and `y` selection in the script.
-* **Engine errors when reading Excel:** Install `openpyxl` (`pip install openpyxl`) for `.xlsx` files.
+* **FileNotFoundError / Path issues:** Check the path to the CSV file and your working directory. Use an absolute path if necessary.
+* **Missing columns:** Ensure `SOH` and `U1..U21` exist. Rename columns in the CSV file or update `feature_columns` and `y` selection in the script.
 * **NaN values:** Inspect with:
 
 ```python
