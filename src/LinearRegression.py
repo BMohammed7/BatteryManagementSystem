@@ -61,3 +61,19 @@ def visualize_data(x_axis, y_axis) -> None:
     plt.legend()
     plt.grid(True, alpha=0.3)
     plt.show()
+
+def example_prediction(input_data, model) -> None:
+    print("\n" + "="*50)
+    print("EXAMPLE PREDICTION")
+    print("="*50)
+    print("Generating example prediction using average cell voltages...")
+
+    # Use average values from training set as example input
+    example_voltages = input_data.mean(axis=0).reshape(1, -1)
+    predicted_soh = model.predict(example_voltages)[0]
+
+    print(f"Example input voltages (U1-U21 averages):")
+    for i, voltage in enumerate(example_voltages[0], 1):
+        print(f"  U{i}: {voltage:.3f}V")
+
+    print(f"\nPredicted SOH for this battery pack: {predicted_soh:.4f}")
