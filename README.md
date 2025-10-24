@@ -138,5 +138,3 @@ Impute or drop NaNs before fitting.
 ---
 
 **End of README**
-
-```
