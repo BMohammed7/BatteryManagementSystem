@@ -1,6 +1,6 @@
 # Battery SOH Prediction using Linear Regression
 
-**Project:** Linear Regression model to predict battery State of Health (SOH) from cell voltages (U1–U21)  
+**Project:** Linear Regression model to predict battery State of Health (SOH) from cell voltages (U1–U21) 
 
 ## Team Members
 | Name | Student Number |
@@ -15,7 +15,7 @@
 
 ## Overview
 
-This repository contains a Python script that trains a linear regression model on a `PulseBat Dataset.xlsx` Excel file (sheet: `SOC ALL`) and produces evaluation metrics and plots showing how well the model predicts SOH from individual cell voltages.
+This repository contains a Python script that trains a linear regression model on a `PulseBat Dataset.csv` CSV file and produces evaluation metrics and plots showing how well the model predicts SOH from individual cell voltages.
 
 This README explains how a TA can set up the environment, run the script, and verify the results.
 
@@ -76,7 +76,7 @@ pip install pandas numpy matplotlib scikit-learn openpyxl
 If your working directory differs, open `src/LinearRegression.py` and adjust the path at the top:
 
 ```python
-df = pd.read_csv("../data/PulseBat Dataset.xlsx", sheet_name="SOC ALL")
+df = pd.read_csv("../data/PulseBat Dataset.csv")
 ```
 
 Change to the correct relative or absolute path if needed.
