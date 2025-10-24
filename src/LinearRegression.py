@@ -1,5 +1,5 @@
-import sys
-from pandas import read_csv, DataFrame
+import sys, time
+from pandas import read_csv
 from numpy import sqrt, argsort
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -17,13 +17,6 @@ except FileNotFoundError:
 
 # Featured Columns: U1 to U21
 feature_columns = [f"U{i}" for i in range(1, 22)]
-
-# Check if all feature columns exist
-missing_cols = [col for col in feature_columns if col not in df.columns]
-if missing_cols:
-    print(f"Warning: Missing columns: {missing_cols}")
-    # Use only available columns
-    feature_columns = [col for col in feature_columns if col in df.columns]
 
 # Target: SOH
 X = df[feature_columns]
@@ -54,12 +47,6 @@ print("="*50)
 print(f"R² Score: {r2:.4f}")
 print(f"Mean Absolute Error (MAE): {mae:.4f}")
 print(f"Root Mean Squared Error (RMSE): {rmse:.4f}")
-
-# Display coefficients
-coefficients = DataFrame({
-    'Feature': feature_columns,
-    'Coefficient': model.coef_
-}).sort_values('Coefficient', key=abs, ascending=False)
 
 # Sort for better visualization
 sorted_indices = argsort(y_test.values)
