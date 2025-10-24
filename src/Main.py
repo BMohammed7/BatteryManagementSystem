@@ -1,18 +1,15 @@
-import sys, time
-from numpy import sqrt, argsort
+import time
+from numpy import argsort
 from LinearRegression import load_data, calculate_metrics, train_data, visualize_data
 
-if (__name__ == "__main__"):
+if __name__ == "__main__":
     # Load data
     print("Loading data...")
-    df = load_data("data/PulseBat Dataset.csv")
-
-    # Featured Columns: U1 to U21
-    feature_columns = [f"U{i}" for i in range(1, 22)]
-
-    # Target: SOH
-    X = df[feature_columns]
-    y = df["SOH"]
+    data, headers = load_data("data/PulseBat Dataset.csv")
+    
+    # Featured Columns: U1 to U21, Target: SOH
+    X = data[:, :-1]  # All columns except last
+    y = data[:, -1]   # Last column as target (SOH)
 
     # Train the data
     datasets = train_data(X, y)
@@ -33,8 +30,8 @@ if (__name__ == "__main__"):
     print(f"Root Mean Squared Error (RMSE): {rmse:.4f}")
 
     # Sort for better visualization
-    sorted_indices = argsort(y_test.values)
-    y_test_sorted = y_test.values[sorted_indices]
+    sorted_indices = argsort(y_test)
+    y_test_sorted = y_test[sorted_indices]
     y_pred_sorted = y_pred[sorted_indices]
 
     visualize_data(y_test_sorted, y_pred_sorted)
@@ -46,7 +43,7 @@ if (__name__ == "__main__"):
     print("Generating example prediction using average cell voltages...")
 
     # Use average values from training set as example input
-    example_voltages = X_train.mean().values.reshape(1, -1)
+    example_voltages = X_train.mean(axis=0).reshape(1, -1)
     predicted_soh = model.predict(example_voltages)[0]
 
     print(f"Example input voltages (U1-U21 averages):")
