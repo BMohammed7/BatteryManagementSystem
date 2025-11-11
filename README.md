@@ -5,7 +5,6 @@
 ## Team Members
 | Name | Student Number |
 |------|----------------|
-| Hashir Rashid | 100910330 |
 | Burhanuddin Mohammed | 100943760 |
 | Yahya Zouhar | 100922007 |
 | Farhan Shameer | 100906062 |
