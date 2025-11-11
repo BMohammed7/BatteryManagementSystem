@@ -60,7 +60,8 @@ def visualize_data(x_axis, y_axis) -> None:
     plt.title('Actual vs Predicted SOH Across Test Samples')
     plt.legend()
     plt.grid(True, alpha=0.3)
-    plt.show()
+    # plt.show()
+    plt.savefig('LinearResults.png')
 
 def example_prediction(input_data, model) -> None:
     print("\n" + "="*50)

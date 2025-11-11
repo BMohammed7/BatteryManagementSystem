@@ -1,7 +1,9 @@
 from numpy import argsort
+from time import time
 from LinearRegression import load_data, calculate_metrics, train_data, visualize_data, example_prediction
 
 if __name__ == "__main__":
+    s = time()
     # Load data
     print("Loading data...")
     data, headers = load_data("../data/PulseBat Dataset.csv")
@@ -40,4 +42,5 @@ if __name__ == "__main__":
 
     print("="*50)
     print("ANALYSIS COMPLETE")
+    print(time() - s)
     print("="*50)
