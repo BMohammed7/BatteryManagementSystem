@@ -89,5 +89,8 @@ def example_prediction(input_data, model) -> None:
         print(f"  U{i}: {voltage:.3f}V")
     
     print(f"\nPredicted SOH for this battery pack: {predicted_soh:.4f}")
+    
+    status = classify_battery_health(predicted_soh)
+    print(f"Battery Status: {status}")
 
 
