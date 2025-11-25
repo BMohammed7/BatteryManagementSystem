@@ -63,6 +63,17 @@ def visualize_data(x_axis, y_axis) -> None:
     # plt.show()
     plt.savefig('LinearResults.png')
 
+def classify_battery_health(soh_value: float) -> str:
+    """
+    Classifies battery health based on the project rule:
+    - If SOH < 0.6 -> "The battery has a problem."
+    - If SOH >= 0.6 -> "The battery is healthy."
+    """
+    if soh_value < 0.6:
+        return "The battery has a problem."
+    else:
+        return "The battery is healthy."
+
 def example_prediction(input_data, model) -> None:
     print("\n" + "="*50)
     print("EXAMPLE PREDICTION")
@@ -76,16 +87,7 @@ def example_prediction(input_data, model) -> None:
     print(f"Example input voltages (U1-U21 averages):")
     for i, voltage in enumerate(example_voltages[0], 1):
         print(f"  U{i}: {voltage:.3f}V")
-
-def classify_battery_health(soh_value: float) -> str:
-    """
-    Classifies battery health based on the project rule:
-    - If SOH < 0.6 -> "The battery has a problem."
-    - If SOH >= 0.6 -> "The battery is healthy."
-    """
-    if soh_value < 0.6:
-        return "The battery has a problem."
-    else:
-        return "The battery is healthy."
     
     print(f"\nPredicted SOH for this battery pack: {predicted_soh:.4f}")
+
+
